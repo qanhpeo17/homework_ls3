@@ -296,7 +296,6 @@ app.get('/posts-topthree-comments', async (req, res) => {
 
         const posts = await postsResponse.json();
 
-        // Iterate over posts and fetch the top 3 comments for each
         const postsWithComments = await Promise.all(posts.map(async (post) => {
             const commentsResponse = await fetch(`http://localhost:3031/comments?postId=${post.id}`);
 
@@ -308,7 +307,6 @@ app.get('/posts-topthree-comments', async (req, res) => {
 
             const comments = await commentsResponse.json();
 
-            // Get the first 3 comments (slice ensures we only take the first 3)
             const topThreeComments = comments.slice(0, 3);
 
             return {
