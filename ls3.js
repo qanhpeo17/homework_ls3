@@ -251,7 +251,7 @@ app.put('/comments/:id', async (req, res) => {
         });
     }
 });
-//bai6
+//bai6 va bai8
 app.get('/posts/:postId/comments', async (req, res) => {
     try {
         const postId = req.params.postId;
